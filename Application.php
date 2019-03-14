@@ -10,11 +10,51 @@
  */
  
 namespace IPS\vardumper;
+use Symfony\Component\VarDumper\VarDumper;
+
+require_once __DIR__ . '/sources/vendor/autoload.php';
 
 /**
  * VarDumper Application Class
  */
 class _Application extends \IPS\Application
 {
-	
+	protected function get__icon()
+    {
+        return 'code';
+    }
 }
+
+/* eval'd so we can put into global namespace */
+eval( '
+if (!function_exists(\'dump\')) {
+    /**
+     * @author Nicolas Grekas <p@tchwork.com>
+     */
+    function dump($var, ...$moreVars)
+    {
+        VarDumper::dump($var);
+
+        foreach ($moreVars as $v) {
+            VarDumper::dump($v);
+        }
+
+        if (1 < func_num_args()) {
+            return func_get_args();
+        }
+
+        return $var;
+    }
+}
+
+if (!function_exists(\'dd\')) {
+    function dd(...$vars)
+    {
+        foreach ($vars as $v) {
+            VarDumper::dump($v);
+        }
+
+        die(1);
+    }
+}
+');
