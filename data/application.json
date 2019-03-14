@@ -1,1 +1,8 @@
-{"application_title":"VarDumper","app_author":"Makoto","app_directory":"vardumper","app_protected":false,"app_website":{"data":{"scheme":"https","host":"dev.taiga.sh","port":null,"user":null,"pass":null,"path":"\/ips\/var-dumper","query":"","fragment":null},"queryString":[],"hiddenQueryString":[],"isInternal":false,"isFriendly":false},"app_update_check":""}
+{
+    "application_title": "VarDumper",
+    "app_author": "Makoto",
+    "app_directory": "vardumper",
+    "app_protected": 0,
+    "app_website": "https:\/\/dev.taiga.sh\/ips\/var-dumper",
+    "app_update_check": ""
+}
